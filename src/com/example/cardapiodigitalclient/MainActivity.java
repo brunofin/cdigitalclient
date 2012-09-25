@@ -1,6 +1,8 @@
 package com.example.cardapiodigitalclient;
 
+import server.Device;
 import android.os.Bundle;
+import android.provider.Settings.Secure;
 import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity implements OnClickListener {
 	private View button;
+	private Thread t;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -16,6 +19,12 @@ public class MainActivity extends Activity implements OnClickListener {
         
         button = findViewById(R.id.button1);
         button.setOnClickListener(this);
+        
+        Device d = new Device();
+        d.setAndroid_id(Secure.getString(getBaseContext().getContentResolver(), Secure.ANDROID_ID));
+        d.setMesa("14");
+        
+        t = new Thread(new Cliente(d));
     }
 
     @Override
@@ -25,7 +34,7 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
 	public void onClick(View v) {
-		new Thread(new Cliente()).start();
+		t.start();
 		
 	}
 }
