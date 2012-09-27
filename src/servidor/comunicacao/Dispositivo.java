@@ -1,4 +1,4 @@
-package server;
+package servidor.comunicacao;
 
 /**
  * Usada para identificar de forma única qual o dispositivo.
@@ -6,7 +6,7 @@ package server;
  * @author bruno
  * @see android.provider.ANDROID_ID
  */
-public class Device implements java.io.Serializable {
+public class Dispositivo implements java.io.Serializable {
 	/**
 	 * Gerado pelo dispositivo Android e somente ele.
 	 * Garantirá qual dispositivo está acossiado com a mesa.

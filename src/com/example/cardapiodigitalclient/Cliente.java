@@ -5,15 +5,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-import server.Device;
+import servidor.comunicacao.Dispositivo;
 
 public class Cliente implements Runnable {
 	private ObjectOutputStream out;
 	private ObjectInputStream in;
-	private Device device;
+	private Dispositivo dispositivo;
 	
-	public Cliente(Device device) {
-		this.device = device;
+	public Cliente(Dispositivo dispositivo) {
+		this.dispositivo = dispositivo;
 	}
 	
 
@@ -32,12 +32,7 @@ public class Cliente implements Runnable {
 		out = new ObjectOutputStream(cliente.getOutputStream());
 		in = new ObjectInputStream(cliente.getInputStream());
 		
-		out.writeObject(device); //envia para o servidor a identificação do dispositivo para obter conexão;
-		
-		for(int i = 0; i<50; i++) {
-			out.writeObject(new String("teste porra!"));
-		}
-		out.writeObject(new String("shutdown"));
+		out.writeObject(dispositivo); //envia para o servidor a identificação do dispositivo para obter conexão;
 	}
 
 }

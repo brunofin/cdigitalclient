@@ -4,6 +4,7 @@ public class Cozinheiro extends Pessoa {
 	private String historico;
 	private String especialidade;
 	private String telefone;
+	private String celular;
 	private Foto foto;
 	
 	public Cozinheiro() {
@@ -40,5 +41,13 @@ public class Cozinheiro extends Pessoa {
 
 	public void setFoto(Foto foto) {
 		this.foto = foto;
+	}
+
+	public String getCelular() {
+		return celular;
+	}
+
+	public void setCelular(String celular) {
+		this.celular = celular;
 	}
 }

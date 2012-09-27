@@ -1,11 +1,13 @@
 package bean;
 
 import java.util.Calendar;
+import java.util.List;
 
 public class Pedido {
 	private int pedidoId;
 	private Calendar data;
 	private Cliente cliente;
+	private List <Item> itens;
 	
 	public Pedido() {
 		// TODO Auto-generated constructor stub
@@ -33,5 +35,13 @@ public class Pedido {
 
 	public void setData(Calendar data) {
 		this.data = data;
+	}
+
+	public List <Item> getItens() {
+		return itens;
+	}
+
+	public void setItens(List <Item> itens) {
+		this.itens = itens;
 	}
 }

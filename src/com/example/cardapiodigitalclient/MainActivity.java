@@ -1,6 +1,6 @@
 package com.example.cardapiodigitalclient;
 
-import server.Device;
+import servidor.comunicacao.Dispositivo;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
 import android.app.Activity;
@@ -20,7 +20,7 @@ public class MainActivity extends Activity implements OnClickListener {
         button = findViewById(R.id.button1);
         button.setOnClickListener(this);
         
-        Device d = new Device();
+        Dispositivo d = new Dispositivo();
         d.setAndroid_id(Secure.getString(getBaseContext().getContentResolver(), Secure.ANDROID_ID));
         d.setMesa("14");
         
