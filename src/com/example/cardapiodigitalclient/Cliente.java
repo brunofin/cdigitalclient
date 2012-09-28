@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import servidor.comunicacao.Dispositivo;
+import servidor.comunicacao.Pacote;
 
 public class Cliente implements Runnable {
 	private ObjectOutputStream out;
@@ -33,6 +34,11 @@ public class Cliente implements Runnable {
 		in = new ObjectInputStream(cliente.getInputStream());
 		
 		out.writeObject(dispositivo); //envia para o servidor a identificação do dispositivo para obter conexão;
+	}
+	
+	public Object enviarPacote(Pacote p) throws IOException, ClassNotFoundException {
+		out.writeObject(p);
+		return in.readObject();
 	}
 
 }

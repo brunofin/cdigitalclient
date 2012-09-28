@@ -5,4 +5,8 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
 
+    <color name="wine">#129855</color>
+
+    <string name="title_activity_tipo">TipoActivity</string>
+
 </resources>
