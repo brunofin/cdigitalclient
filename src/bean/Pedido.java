@@ -1,9 +1,10 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
-public class Pedido {
+public class Pedido implements Serializable {
 	private int pedidoId;
 	private Calendar data;
 	private Cliente cliente;

@@ -1,6 +1,8 @@
 package bean;
 
-public class Categoria {
+import java.io.Serializable;
+
+public class Categoria implements Serializable {
 	private int categoriaId;
 	private String nome;
 	private String descricao;

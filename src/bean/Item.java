@@ -1,8 +1,9 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Item {
+public class Item implements Serializable {
 	private int itemId;
 	private String nome;
 	private String descricao;
@@ -10,7 +11,21 @@ public class Item {
 	private List<Foto> fotos;
 	private Categoria categoria;
 	private List<Ingrediente> ingredientes;
-
+	/**
+	 * Atributo que só deve ser preenchido quando
+	 * um item é incluído em um pedido. Só é 
+	 * salvo no banco nesse caso (na tabela
+	 * item_pedido).
+	 */
+	private String observacaoItemPedido;
+	/**
+	 * Atributo que só deve ser preenchido quando
+	 * um item é incluído em um pedido ou em uma
+	 * promocao. Só é salvo no banco nesses casos 
+	 * (na tebela item_pedido ou na tabela 
+	 * item_promocao).
+	 */
+	private int quantidadeItemPedido;
 	
 	public Item() {
 	}
@@ -70,5 +85,24 @@ public class Item {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getObservacaoItemPedido() {
+		return observacaoItemPedido;
+	}
+
+
+	public void setObservacaoItemPedido(String observacaoItemPedido) {
+		this.observacaoItemPedido = observacaoItemPedido;
+	}
+
+
+	public int getQuantidadeItemPedido() {
+		return quantidadeItemPedido;
+	}
+
+
+	public void setQuantidadeItemPedido(int quantidadeItemPedido) {
+		this.quantidadeItemPedido = quantidadeItemPedido;
 	}
 }

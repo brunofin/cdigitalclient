@@ -1,6 +1,8 @@
 package bean;
 
-public class Tipo {
+import java.io.Serializable;
+
+public class Tipo implements Serializable {
 	private int tipoId;
 	private String nome;
 	

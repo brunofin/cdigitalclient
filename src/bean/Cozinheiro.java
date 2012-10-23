@@ -1,6 +1,8 @@
 package bean;
 
-public class Cozinheiro extends Pessoa {
+import java.io.Serializable;
+
+public class Cozinheiro extends Pessoa implements Serializable {
 	private String historico;
 	private String especialidade;
 	private String telefone;

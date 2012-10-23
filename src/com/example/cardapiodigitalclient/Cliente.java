@@ -28,7 +28,7 @@ public class Cliente implements Runnable {
 	}
 	
 	private void iniciar() throws IOException {
-		Socket cliente = new Socket("100.10.0.102", 4445);
+		Socket cliente = new Socket("100.10.0.10", 4445); //TODO: botar pra pegar IP e porta na tela de entrada do cardapio junto com mesa
 		
 		out = new ObjectOutputStream(cliente.getOutputStream());
 		in = new ObjectInputStream(cliente.getInputStream());

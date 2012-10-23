@@ -1,8 +1,9 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Comentario {
+public class Comentario implements Serializable {
 	private int comentarioId;
 	private String comentario;
 	private Calendar data;

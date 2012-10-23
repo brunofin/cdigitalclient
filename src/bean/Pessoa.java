@@ -1,8 +1,9 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public abstract class Pessoa {
+public abstract class Pessoa implements Serializable {
 	private int id;
 	private String nome;
 	private String sobrenome;
