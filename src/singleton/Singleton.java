@@ -12,7 +12,7 @@ public final class Singleton {
 	/**
 	 * Conexão do dispositivo com o servidor
 	 */
-	public static Cliente CLIENTE;
+	public static Cliente CLIENTE; // não é o bean Cliente TODO: achar um novo nome para esta classe
 	
 	public static List<Item> ITEMS;
 	public static List<Categoria> CATEGORIAS;
