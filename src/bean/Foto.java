@@ -39,4 +39,8 @@ public class Foto implements Serializable {
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
+	
+	public String toString() {
+		return getLocal_foto();
+	}
 }

@@ -45,4 +45,10 @@ public class Pedido implements Serializable {
 	public void setItens(List <Item> itens) {
 		this.itens = itens;
 	}
+	
+	public String toString() {
+		return getData().get(Calendar.DAY_OF_MONTH) + "/"
+				+ getData().get(Calendar.MONTH) + 1 + " "
+				+ getCliente().getNome() + " " + getCliente().getSobrenome();
+	}
 }

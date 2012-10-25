@@ -52,4 +52,8 @@ public class Cozinheiro extends Pessoa implements Serializable {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
+	
+	public String toString() {
+		return getNome() + " " + getSobrenome();
+	}
 }

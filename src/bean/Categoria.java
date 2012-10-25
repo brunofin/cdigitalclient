@@ -39,4 +39,15 @@ public class Categoria implements Serializable {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
+	@Override
+	public String toString(){
+		return getTipo().getNome() + " :: " + getNome();
+	}
+	
+	public boolean equals(Categoria c){
+		if(c.getCategoriaId() == categoriaId){
+			return true;
+		}
+		return false;
+	}
 }

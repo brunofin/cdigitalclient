@@ -73,5 +73,9 @@ public class Promocao implements Serializable {
 
 	public void setItens(List <Item> itens) {
 		this.itens = itens;
-	}	
+	}
+	
+	public String toString() {
+		return getNome();
+	}
 }

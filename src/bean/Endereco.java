@@ -74,5 +74,9 @@ public class Endereco implements Serializable {
 	public void setEnderecoId(int enderecoId) {
 		this.enderecoId = enderecoId;
 	}
+	
+	public String toString() {
+		return getRua() + " " + getNumero();
+	}
 
 }

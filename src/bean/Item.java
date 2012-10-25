@@ -105,4 +105,8 @@ public class Item implements Serializable {
 	public void setQuantidadeItemPedido(int quantidadeItemPedido) {
 		this.quantidadeItemPedido = quantidadeItemPedido;
 	}
+	
+	public String toString() {
+		return getNome();
+	}
 }

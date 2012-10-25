@@ -9,4 +9,8 @@
 
     <string name="title_activity_tipo">TipoActivity</string>
 
+    <string name="mainMesa">Número desta mesa:</string>
+
+    <string name="mainMesaHint">Mesa</string>
+
 </resources>

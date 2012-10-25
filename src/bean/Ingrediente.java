@@ -59,4 +59,10 @@ public class Ingrediente implements Serializable {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+	
+	public String toString() {
+		return getNome();
+	}
+
+
 }

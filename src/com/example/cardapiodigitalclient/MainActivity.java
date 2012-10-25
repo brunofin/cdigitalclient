@@ -5,8 +5,6 @@ import servidor.comunicacao.Metodo;
 import servidor.comunicacao.Pacote;
 import singleton.Singleton;
 import bean.Item;
-import bean.Tipo;
-import bean.Categoria;
 import java.util.List;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
@@ -20,6 +18,7 @@ import android.widget.EditText;
 public class MainActivity extends Activity implements OnClickListener {
 	private View button;
 	private EditText mesa;
+	private EditText ip;
 	private Thread t;
 
 	@Override
@@ -27,22 +26,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		button = findViewById(R.id.button1);
+		button = findViewById(R.id.buttonConectar);
 		button.setOnClickListener(this);
 
-		mesa = (EditText) findViewById(R.id.editText1);
-
-		Dispositivo d = new Dispositivo();
-		d.setAndroid_id(Secure.getString(getBaseContext().getContentResolver(),
-				Secure.ANDROID_ID));
-		d.setMesa(mesa.getText().toString());
-
-		Singleton.CLIENTE = new Cliente(d);
-		t = new Thread(Singleton.CLIENTE);
-
-		criarEstruturaCardapio();
-
-		startActivity(new Intent(getBaseContext(), TipoActivity.class));
+		mesa = (EditText) findViewById(R.id.mainMesa);
+		ip = (EditText) findViewById(R.id.mainIp);
 	}
 
 	@Override
@@ -52,21 +40,35 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		t.start();
+		switch(v.getId()) {
+		case R.id.buttonConectar:
+			Dispositivo d = new Dispositivo();
+			d.setAndroid_id(Secure.getString(getBaseContext().getContentResolver(),
+					Secure.ANDROID_ID));
+			d.setMesa(mesa.getText().toString());
+			
+			Singleton.CARDAPIO = new Cardapio(d, ip.getText().toString(), 4445);
+			t = new Thread(Singleton.CARDAPIO);
+			
+			t.start();
+			
+			criarEstruturaCardapio();
+
+			startActivity(new Intent(getBaseContext(), TipoActivity.class));
+		}
 
 	}
 
 	@SuppressWarnings("unchecked")
 	private void criarEstruturaCardapio() {
 		Pacote p1 = new Pacote(Metodo.LISTAR_ITEMS, null);
-		Pacote p2 = new Pacote(Metodo.LISTAR_CATEGORIAS, null);
-		Pacote p3 = new Pacote(Metodo.LISTAR_TIPOS, null);
 
 		try {
-			Singleton.ITEMS = (List<Item>) ((Pacote) Singleton.CLIENTE.enviarPacote(p1)).getArgumentos();
-			Singleton.CATEGORIAS = (List<Categoria>) ((Pacote) Singleton.CLIENTE.enviarPacote(p2)).getArgumentos();
-			Singleton.TIPOS = (List<Tipo>) ((Pacote) Singleton.CLIENTE.enviarPacote(p3)).getArgumentos();
+			System.out.println("<MainActivity> Enviando pacote...");
+			Singleton.ITEMS = (List<Item>) ((Pacote) Singleton.CARDAPIO.enviarPacote(p1)).getArgumentos();
+			System.out.println("<MainActivity> Lista de Itens recebida! Total de itens atual: " + Singleton.ITEMS.size());
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
