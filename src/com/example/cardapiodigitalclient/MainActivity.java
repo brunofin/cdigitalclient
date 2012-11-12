@@ -4,8 +4,13 @@ import servidor.comunicacao.Dispositivo;
 import servidor.comunicacao.Metodo;
 import servidor.comunicacao.Pacote;
 import singleton.Singleton;
+import bean.Categoria;
 import bean.Item;
+import bean.Tipo;
+
+import java.util.LinkedList;
 import java.util.List;
+
 import android.os.Bundle;
 import android.provider.Settings.Secure;
 import android.app.Activity;
@@ -70,6 +75,17 @@ public class MainActivity extends Activity implements OnClickListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		List<Tipo> tipos = new LinkedList<Tipo>();
+		List<Categoria> categorias = new LinkedList<Categoria>();
+		for(Item i : Singleton.ITEMS) {
+			Categoria c = i.getCategoria();
+			Tipo t = c.getTipo();
+			if(!categorias.contains(c)) categorias.add(c);
+			if(!tipos.contains(t)) tipos.add(t);
+		}
+		Singleton.CATEGORIAS = categorias;
+		Singleton.TIPOS = tipos;
 	}
 
 }

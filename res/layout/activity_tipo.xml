@@ -46,7 +46,7 @@
             android:layout_toRightOf="@+id/button_cadastro"
             android:text="Conheça as vantagens" />
 
-        <RelativeLayout
+        <TableLayout
             android:id="@+id/layout_tipo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,6 +55,6 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/button_pedido" >
 
-        </RelativeLayout>
+        </TableLayout>
 
     </RelativeLayout>
