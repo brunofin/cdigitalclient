@@ -8,9 +8,8 @@
     <color name="wine">#129855</color>
 
     <string name="title_activity_tipo">TipoActivity</string>
-
     <string name="mainMesa">Número desta mesa:</string>
-
     <string name="mainMesaHint">Mesa</string>
+    <string name="title_activity_categorias">Categorias</string>
 
 </resources>

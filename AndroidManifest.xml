@@ -29,6 +29,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
+        <activity
+            android:name=".CategoriaActivity"
+            android:label="@string/title_activity_categorias" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cardapiodigitalclient.TipoActivity" />
+        </activity>
     </application>
 
 </manifest>

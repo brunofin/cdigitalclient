@@ -57,7 +57,7 @@ public class Cardapio implements Runnable {
 				pacote = null;
 			}
 			
-			// TODO: verificar também se a conexão foi encerrada (intencionalmente) pelo servidor
+			// TODO: verificar também se a conexão foi encerrada (intencionalmente ou não) pelo servidor
 		}
 	}
 	
