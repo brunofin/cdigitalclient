@@ -81,8 +81,22 @@ public class MainActivity extends Activity implements OnClickListener {
 		for(Item i : Singleton.ITEMS) {
 			Categoria c = i.getCategoria();
 			Tipo t = c.getTipo();
-			if(!categorias.contains(c)) categorias.add(c);
-			if(!tipos.contains(t)) tipos.add(t);
+			//if(!categorias.contains(c)) categorias.add(c);
+			boolean contains = false;
+			for(Categoria ca : categorias) {
+				if(ca.getCategoriaId() == c.getCategoriaId())
+						contains = true;
+			}
+			if(!contains)
+				categorias.add(c);
+			//if(!tipos.contains(t)) tipos.add(t);
+			contains = false;
+			for(Tipo ti : tipos) {
+				if(ti.getTipoId() == t.getTipoId())
+					contains = true;
+			}
+			if(!contains)
+				tipos.add(t);
 		}
 		Singleton.CATEGORIAS = categorias;
 		Singleton.TIPOS = tipos;
